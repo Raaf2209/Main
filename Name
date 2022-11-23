@@ -1,0 +1,50 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import javax.imageio.*;
+import java.io.*;
+
+public class Main extends JPanel {
+	private BufferedImage img = null;
+	Enemy[] column = new Enemy[6];
+
+	// private Spaceship s = new Spaceship(550, 450, 0, 0); // Add an instance of the ball object
+
+	public Main() {
+		for (int i = 0; i < column.length; i++)
+		{
+			 column[i] = new Enemy();
+			 f[i] = d;
+		}
+	}
+
+	
+	private void move() {
+
+	}	
+	
+	@Override
+	public void paint(Graphics g) {
+		super.paint(g); // Clears the panel, for a fresh start
+		Graphics2D g2d = (Graphics2D) g;
+		
+	}
+
+	public static void main(String[] args) throws InterruptedException {
+		JFrame frame = new JFrame("Space Invaders");
+		Main m = new Main();
+		frame.add(m);
+		frame.setSize(1280, 720);
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		
+		while (true) {
+			m.move(); // Updates the coordinates
+			m.repaint(); // Calls the paint method
+			Thread.sleep(10); // Pauses for a moment
+		}
+	}
+}
