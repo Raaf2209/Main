@@ -1,0 +1,43 @@
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+import javax.swing.JFrame;
+
+public class Enemy {
+	private int[][] attack = new int [5][6];
+	private int xa = 1;
+	private Main m;
+	public Enemy (int [] a, int [] b ,Main m)
+	{
+		this.m = m;
+		attack = a;
+	}
+	private void move() 
+	{
+	for (int row = 0; row < attack.length; row++)
+	{
+	for (int col = 0; col < attack[row].length; col++)
+	{
+		 if ((attack[row][col] + xa < 0) || (attack[row][col] + xa > m.getWidth() - 20));
+		 xa *= -1;
+	attack[row][col] += 1;
+	}
+	}
+	}
+	public void paint(Graphics g) {
+		for (int row = 0; row < attack.length; row++)
+		{
+		g.fillOval(, xa, xa, xa);
+		}
+		}
+	}
+	public static void main(String[] args) throws InterruptedException {
+		JFrame frame = new JFrame("Space Invaders");
+		Main m = new Main();
+		frame.add(m);
+		frame.setSize(1280, 720);
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+}
